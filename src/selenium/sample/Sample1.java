@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import selenium.ChangeToFileExtension;
 
 import java.io.File;
 
@@ -14,13 +15,13 @@ public class Sample1 {
     @Test
     public void goToHomepage() throws Exception {
         //define driver
-        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver" + new selenium.ChangeToFileExtension().extension());
+        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver" + new ChangeToFileExtension().extension());
         WebDriver driver = new ChromeDriver();
 
         //open test homepage
         driver.get("https://google.com");
-        driver.get("https://kristinek.github.io/site/");
-        System.out.println(driver.findElement(By.id("h1")).getText());
+        driver.get("https://www.amazon.com/");
+      //  System.out.println(driver.findElement(By.id("h1")).getText());
         //get title of page
         System.out.println(driver.getTitle());
         //get URL of current page
@@ -31,4 +32,6 @@ public class Sample1 {
         //Close browser
         driver.quit();
     }
+
+
 }

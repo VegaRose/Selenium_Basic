@@ -60,7 +60,7 @@ public class Sample2Task {
 //         TODO:
 //         get size text of class "test" (should be 5)
         System.out.println(driver.findElements(By.className("test")).size());
-        
+
 //         get text of class "test"
 
         List<WebElement> allElementsWithClass = driver.findElements(By.className("test"));

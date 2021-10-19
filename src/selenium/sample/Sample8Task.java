@@ -40,5 +40,7 @@ public class Sample8Task {
 //        check the background of top 2 sections
 //        rgba(255, 221, 221, 1);
 //        check h1 element font-size 64px
+        WebElement h = driver.findElement(By.xpath("//h1[@class = 'w3-jumbo']"));
+        assertEquals("64px", h.getCssValue("font-size"));
     }
 }

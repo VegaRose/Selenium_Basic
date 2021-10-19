@@ -45,6 +45,32 @@ public class Sample7Task {
 //        tick  "Option 3"
 //        click result
 //        check that text 'You selected value(s): Option 2, Option 3' is being displayed
+        List<WebElement> checkBoxes = driver.findElements(By.cssSelector(".w3-check[type='checkbox']"));
+
+        for (WebElement checkBox : checkBoxes) {
+        assertFalse(checkBox.isSelected());
+       }
+
+        WebElement Option1 = driver.findElement(By.cssSelector(".w3-check[value='Option 1'][type='checkbox']"));
+        WebElement Option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type='checkbox']"));
+        WebElement Option3 = driver.findElement(By.cssSelector(".w3-check[value='Option 3'][type='checkbox']"));
+        WebElement result = driver.findElement(By.cssSelector("#result_button_checkbox"));
+
+            assertFalse(Option1.isSelected());
+            assertFalse(Option2.isSelected());
+            assertFalse(Option3.isSelected());
+        Thread.sleep(2000);
+        Option2.click();
+        assertTrue(Option2.isSelected());
+        Thread.sleep(2000);
+        Option3.click();
+        assertTrue(Option3.isSelected());
+        result.click();
+        Thread.sleep(2000);
+        assertEquals("You selected value(s): Option 2, Option 3",driver.findElement(By.cssSelector("#result_checkbox")).getText());
+
+
+
     }
 
 
@@ -58,6 +84,26 @@ public class Sample7Task {
 //        check that "Option 2" and "Option 3' are not select, but "Option 1" is selected
 //        click result
 //        check that 'You selected option: Option 1' text is being displayed
+        List<WebElement> radioButtons = driver.findElements(By.cssSelector(".w3-check[type='radio']"));
+
+        for (WebElement radioButton : radioButtons) {
+            assertFalse(radioButton.isSelected());
+        }
+            WebElement Option1 = driver.findElement(By.cssSelector(".w3-check[value='Option 1'][type='radio'"));
+            WebElement Option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type='radio'"));
+            WebElement Option3 = driver.findElement(By.cssSelector(".w3-check[value='Option 3'][type='radio'"));
+            WebElement result = driver.findElement(By.cssSelector("#result_button_ratio"));
+
+            assertFalse(Option1.isSelected());
+            assertFalse(Option2.isSelected());
+            assertFalse(Option3.isSelected());
+
+            Thread.sleep(2000);
+            Option3.click();
+            assertTrue(Option3.isSelected());
+            result.click();
+            Thread.sleep(2000);
+            assertEquals("You selected option: Option 3",driver.findElement(By.cssSelector("#result_radio")).getText());
     }
 
     @Test
@@ -68,6 +114,17 @@ public class Sample7Task {
 //        check that selected option is "Option 2"
 //        click result
 //        check that 'You selected option: Option 2' text is being displayed
+        WebElement result = driver.findElement(By.cssSelector("#result_button_select"));
+        Select dropdown = new Select(driver.findElement(By.id("vfb-12")));
+        assertEquals("Choose your option", dropdown.getFirstSelectedOption().getText());
+        dropdown.selectByValue("value3");
+        assertEquals("Option 3", dropdown.getFirstSelectedOption().getText());
+
+        dropdown.selectByVisibleText("Option 2");
+        assertEquals("Option 2", dropdown.getFirstSelectedOption().getText());
+
+        result.click();
+        assertEquals("You selected option: Option 2",driver.findElement(By.cssSelector("#result_select")).getText());
     }
 
     @Test

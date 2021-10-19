@@ -57,7 +57,7 @@ public class Sample3Task {
 //         fail with custom error message:
 
         String expected1 = driver.findElement(By.name("randomButton2")).getAttribute("value");
-        assertTrue(expected1,true);
+        assertTrue(expected1, true);
         fail("I want this test to fail, so will!");
     }
 
@@ -74,8 +74,11 @@ public class Sample3Task {
 //        TODO:
 //        check that none of items with class "test"
 //        contain number 190
-        List<WebElement> allElementsWithClass = driver.findElements(By.className("test"));
 
-        List<WebElement> actual1 = allElementsWithClass;
-        assertFalse(actual1.equals("190"));
-}}
+        List<WebElement> classTestList = driver.findElements(By.className("test"));
+        for (WebElement e : classTestList) {
+            System.out.println("e.getText() = " + e.getText());
+            assertFalse(e.getText().contains("190"));
+        }
+    }
+}

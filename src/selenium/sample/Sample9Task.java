@@ -41,10 +41,10 @@ public class Sample9Task {
 //         * 3) check that both button
 //         * and loading text is not seen,
 //         * success is seen instead "Green Loaded"
-        WebElement startLoadingGreenBtn = driver.findElement(By.id("start_green"));
-        startLoadingGreenBtn.click();
+        WebElement LoadingGreen = driver.findElement(By.id("start_green"));
+        LoadingGreen.click();
 
-        assertFalse(startLoadingGreenBtn.isDisplayed());
+        assertFalse(LoadingGreen.isDisplayed());
 
         WebElement loadingGreen = driver.findElement(By.id("loading_green"));
         assertTrue(loadingGreen.isDisplayed());
@@ -71,10 +71,10 @@ public class Sample9Task {
 //         * success is seen instead "Green Loaded"
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        WebElement startLoadingGreenBtn = driver.findElement(By.id("start_green"));
-        startLoadingGreenBtn.click();
+        WebElement LoadingGreen = driver.findElement(By.id("start_green"));
+        LoadingGreen.click();
 
-        assertFalse(startLoadingGreenBtn.isDisplayed());
+        assertFalse(LoadingGreen.isDisplayed());
 
         WebElement loadingGreen = driver.findElement(By.id("loading_green"));
         assertTrue(loadingGreen.isDisplayed());
@@ -94,10 +94,10 @@ public class Sample9Task {
 //         * and loading text is not seen,
 //         * success is seen instead "Green Loaded"
 
-        WebElement startLoadingGreenBtn = driver.findElement(By.id("start_green"));
-        startLoadingGreenBtn.click();
+        WebElement LoadingGreen = driver.findElement(By.id("start_green"));
+        LoadingGreen.click();
 
-        assertFalse(startLoadingGreenBtn.isDisplayed());
+        assertFalse(LoadingGreen.isDisplayed());
 
         WebElement loadingGreen = driver.findElement(By.id("loading_green"));
         assertTrue(loadingGreen.isDisplayed());
